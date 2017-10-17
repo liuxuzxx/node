@@ -1,0 +1,11 @@
+{
+  "name": "bird",
+  "description": "nodejs的黑鸟计划",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "express": "4.x"
+  }
+}
+
+
