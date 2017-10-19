@@ -7,7 +7,7 @@ module.exports = function(app){
     app.get("/home",function(req,res){
         res.send("Home页面");
         res.end();    
-    );
+    });
 
     app.get("/login",function(req,res){
         res.send("Login登录页面");
