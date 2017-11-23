@@ -8,4 +8,4 @@ http.createServer(function(request,response){
 	response.end(fs.readFileSync("./html/login.html").toString());
 }).listen(12306);
 
-console.log("Start node server at prot:12306.");
+console.log("启动nodejs服务器，端口是：12306");
