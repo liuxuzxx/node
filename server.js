@@ -6,9 +6,10 @@ http.createServer(answer).listen(12306);
 
 function answer(request,response){
     console.log(request);
-	response.writeHead(200,{'Content-Type':'text/html',
+	response.writeHead(301,{'Content-Type':'text/html',
                             'Country-code':'China',
-                            'Camera-fov':'187'});
+                            'Camera-fov':'187',
+							'Location':"http://sina.com"});
 	response.end(fs.readFileSync("./html/login.html").toString());
 }
 
