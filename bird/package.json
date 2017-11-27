@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "express": "4.x",
-    "mongoose": "^4.11.4"
+    "mongoose": "^4.11.4",
+    "socket.io": "2.0.4",
+    "vows": "0.8.1"
   }
 }
