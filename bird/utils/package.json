@@ -1,0 +1,11 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "一个工具类实验",
+  "main": "./lib/utils.js",
+  "scripts": {
+    "test": "node ./test/utils_test.js"
+  },
+  "author": "liuxu",
+  "license": "ISC"
+}
