@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "4.x"
+    "express": "4.x",
+    "http-proxy": "^1.17.0"
   }
 }
