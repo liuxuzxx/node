@@ -4,9 +4,12 @@ const httpProxy = require("http-proxy");
 const hostName = 'localhost';
 const port = 2018;
 
+/**
+ * 生成一个代理服务器，然后使用这个proxy进行前端请求的转发工作
+ */
 const proxy = httpProxy.createProxyServer({});
 proxy.on('error', function (err, req, res) {
-    res.writeHead(500, {
+    res.writeHeaders(500, {
         'Content-Type': 'text/plain'
     });
     res.end('服务器出现错误，请等待管理员处理');
@@ -20,6 +23,11 @@ const server = http.createServer(function(req, res){
             res.statusCode = 200;
             res.setHeader('Content-Type','application/json');
             res.end('{"Host地址信息":"Localhost地址信息"}');
+            break;
+        case '127.0.0.1:2018':
+            res.statusCode = 200;
+            res.setHeader('Content-Type','application/json');
+            res.end('{"127的地址信息":"127.0.0.1:2018"}');
             break;
         default:
             res.statusCode = 200;
