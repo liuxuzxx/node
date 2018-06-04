@@ -1,5 +1,6 @@
 const http = require('http');
 const httpProxy = require("http-proxy");
+const curl = require('./service/curl-man/curl-man');
 
 const hostName = 'localhost';
 const port = 2018;
@@ -38,6 +39,8 @@ const server = http.createServer(function(req, res){
 
 server.listen(port, hostName, function(){
     console.log(`服务器启动了，监听地址是:http://${hostName}:${port}/`);
+    var curlMessage = curl.license();
+    console.log(curlMessage)
 });
 
 
