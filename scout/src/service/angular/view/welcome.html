@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Angular欢迎界面</title>
+        <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js">
+        </script>
+    </head>
+    <body ng-app="found">
+        <div ng-controller="foundController" ng-init="firstName='Rondo';price=6.5;count=3.2;
+        cities=[{'province':'河南','center':'郑州'},{'province':'四川','center':'成都'},
+        {'province':'浙江','center':'杭州'},{'province':'广东','center':'广州'}]">
+            <p>名字: <input type="text" ng-model="name"/> <input type="text" ng-model="age"/></p>
+            <h3>你好 {{name}} Age:{{age}}</h3>
+            <p><span ng-bind="firstName"></span> 名字为：{{firstName}}</p>
+
+            <p>表达式：{{5+5}}</p>
+            <p>------------------------------</p>
+            <p>用户名：<input type="text" ng-model="userName"/></p>
+            <p>密  码：<input type="text" ng-model="password"/></p>
+
+            <p>提交的信息为：{{userName+":"+password}}</p>
+            <p>计算总量：{{price * count}}</p>
+
+            <p>通过循环处理数据</p>
+            <ul>
+                <li ng-repeat="city in cities">
+                    {{'省份：'+city.province+' 省会：'+city.center}}
+                </li>
+            </ul>
+            <p>自定义的标签展示</p>
+            <runoobDirective></runoobDirective>
+        </div>
+
+        <div ng-controller="develController">
+            {{name|uppercase}}
+        </div>
+        <div ng-controller="serviceController">
+            {{siteInfo}}
+        </div>
+
+        <script type="application/javascript">
+            let foundApp = angular.module('found', []);
+            foundApp.controller('foundController',function($scope){
+                $scope.userName='Rondo';
+                $scope.password='root';
+            });
+
+            foundApp.controller('develController',function($scope){
+                $scope.name = '开发者的Scope域';
+            });
+
+            foundApp.controller('serviceController',function($scope,$http){
+                $http.get('/service/angular/site-info',null,{headers:{'selfHeaders':'liuxu','searchCondition':'search condition'}})
+                    .then(function successCallback(response){
+                        let message = JSON.stringify(response);
+                        $scope.siteInfo = message;
+                        console.log(message)
+                    },function errorCallback(response){
+                        let message = JSON.stringify(response);
+                        console.log(message)
+                    });
+            });
+        </script>
+    </body>
+</html>

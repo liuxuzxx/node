@@ -6,8 +6,8 @@ const url = require("url");
 const hostName = 'localhost';
 const port = 2018;
 
-const curl = require('./service/curl-man/curl-man');
-const angular = require('./service/angular/angular');
+const curl = require('./src/service/curl-man/curl-man');
+const angular = require('./src/service/angular/angular');
 
 /**
  * 生成一个代理服务器，然后使用这个proxy进行前端请求的转发工作
