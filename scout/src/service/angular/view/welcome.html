@@ -5,6 +5,8 @@
         <title>Angular欢迎界面</title>
         <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js">
         </script>
+        <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js">
+        </script>
     </head>
     <body ng-app="found">
         <div ng-controller="foundController" ng-init="firstName='Rondo';price=6.5;count=3.2;
@@ -39,8 +41,15 @@
             {{siteInfo}}
         </div>
 
+        <div>
+            <a href="#/index">这个是Site首页</a>
+            <a href="#/angular/site">使用Angular路由请求Site信息</a>
+            <a href="#/angular/notes">获取的便签内容列表</a>
+        </div>
+        <div ng-view></div>
+
         <script type="application/javascript">
-            let foundApp = angular.module('found', []);
+            let foundApp = angular.module('found', ['ngRoute']);
             foundApp.controller('foundController',function($scope){
                 $scope.userName='Rondo';
                 $scope.password='root';
@@ -61,6 +70,13 @@
                         console.log(message)
                     });
             });
+
+            foundApp.config(['$routeProvider',function($routeProvider){
+                $routeProvider.when('/',{template:'这个是首页'})
+                    .when('/angular/site',{templateUrl:'siteTemplate.html'})
+                    .when('/angular/notes',{templateUrl:'alpha.js'})
+                    .otherwise({redirectTo:'/'});
+            }]);
         </script>
     </body>
 </html>

@@ -21,10 +21,9 @@ proxy.on('error', function (err, req, res) {
 });
 
 http.createServer(function(req, res){
-    let requestMessage = req.headers;
-    console.log(JSON.stringify(requestMessage));
-    let path = url.parse(req.url).pathname;
-    console.log(`客户端请求的文件路径为：${path}`);
+    let requestUrl = req.url;
+    console.log(`请求的URL：${requestUrl}`);
+    let path = url.parse(requestUrl).pathname;
     angular.urlDispatcher(path,res);
 }).listen(port, hostName, function(){
     console.log(`服务器启动了，监听地址是:http://${hostName}:${port}/`);
