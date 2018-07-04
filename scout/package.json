@@ -2,13 +2,14 @@
   "name": "scout",
   "version": "1.0.0",
   "description": "秦国迅捷斥侯",
-  "main": "first.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angucomplete-alt": "^3.0.0",
     "express": "4.x",
     "http-proxy": "^1.17.0"
   },

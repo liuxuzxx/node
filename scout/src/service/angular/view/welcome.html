@@ -7,6 +7,7 @@
         </script>
         <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js">
         </script>
+        <script src="/vendor/angucomplete.js"></script>
     </head>
     <body ng-app="found">
         <div ng-controller="foundController" ng-init="firstName='Rondo';price=6.5;count=3.2;
@@ -48,8 +49,12 @@
         </div>
         <div ng-view></div>
 
+        <div id="complete">
+            测试Angular的Complete控件
+            <angucomplete-alt id="teachName" placeholder="输入名字" pause="500" selected-object="selectedTeacher" text-no-results="未找到，请手动添加"/>
+        </div>
         <script type="application/javascript">
-            let foundApp = angular.module('found', ['ngRoute']);
+            let foundApp = angular.module('found', ['ngRoute','angucomplete-alt']);
             foundApp.controller('foundController',function($scope){
                 $scope.userName='Rondo';
                 $scope.password='root';
