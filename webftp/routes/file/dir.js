@@ -2,8 +2,9 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 
-router.get('/*',(req,res)=>{
-    res.send(fs.readdir('/home/user'));
+router.get('/',function(req,res){
+    res.send('查看文件数据信息');
+    res.end();
 });
 
 module.exports=router;
